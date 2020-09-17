@@ -10,4 +10,5 @@ from .models import Message
 class MessageViewSet(viewsets.ModelViewSet) : 
     queryset = Message.objects.all().order_by('-updated_on')
     serializer_class = MessageSerializer 
-    permission_classes = [permissions.DjangoModelPermissions]
+    permission_classes = [permissions.DjangoModelPermissions, 
+                          permissions.IsAuthenticated]
