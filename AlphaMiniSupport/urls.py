@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.conf.urls import url
 from rest_framework import routers 
 from apiservice import views 
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter() 
 router.register(r'messages', views.MessageViewSet)
@@ -26,4 +28,4 @@ urlpatterns = [
     path('api/v1/', include(router.urls)), 
     path('admin/', admin.site.urls),
     url('^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
