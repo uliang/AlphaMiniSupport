@@ -129,6 +129,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = 'http://alpha-mini-test-api.azurewebsites.net/static/'
+STATIC_URL = 'https://alphaministatic.z7.web.core.windows.net/'
 
-STATIC_ROOT = '/home/site/wwwroot/static/'
+STATIC_ROOT = './static/'
