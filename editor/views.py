@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_list_or_404, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
@@ -18,11 +19,13 @@ class MessageEditor(APIView) :
         return self.queryset
 
     def get(self, request): 
-        message = self.get_queryset()[0]
-        serializer = MessageSerializer(message, context={'request': request}) 
-        return Response({
-            'serializer': serializer, 
-            'message': message })
+        if request.user.is_authenticated: 
+            message = self.get_queryset()[0]
+            serializer = MessageSerializer(message, context={'request': request}) 
+            return Response({
+                'serializer': serializer, 
+                'message': message })
+        return redirect('index')
 
     def post(self, request) : 
         message = self.get_queryset()[0]
@@ -35,3 +38,6 @@ class MessageEditor(APIView) :
 
         serializer.save()
         return redirect('message-editor')
+
+def index(request) : 
+    return render(request, 'editor/index.html')

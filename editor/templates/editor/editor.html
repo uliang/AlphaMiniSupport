@@ -1,16 +1,15 @@
+{% extends 'editor/base.html' %}
 {% load rest_framework %} 
 
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
-</head>
+{% block welcome_user %} 
+  <span class="navbar-text">Hello {{ request.user.username }}</span>
+  <a class="nav-item nav-link navbar-text" href="{% url 'logout' %}" >LOGOUT</a> 
+{% endblock %}
 
-<nav class="navbar">
-  <span class="navbar-brand">Alpha Mini Message Editor</span>
-</nav>
-
+{% block form %}
 <div id="form-container" class="container">
   <div class="d-flex flex-column justify-content-center">
-    <form class="form-horizontal m-auto" action="{% url 'message-editor' pk=message.pk %}" method="POST" >
+    <form class="form-horizontal m-auto" action="{% url 'message-editor' %}" method="POST" >
       {% csrf_token %} 
       {% render_form serializer template_pack='rest_framework/horizontal' %}
       <div class="form-group" >
@@ -21,26 +20,4 @@
     </form>
   </div>
 </div>
-
-<style>
-body {
-  background-color: lightgray; 
-}
-nav {
-  background-color: black; 
-  color: white;
-}
-div#form-container {
-  /* background-color: orange;  */
-  width: 75%; 
-  height: 100%; 
-}
-input[type="submit"] {
-  width: 10rem; 
-}
-/*
-form {
-  background-color: pink; 
-}
-*/
-</style>
+{% endblock %}

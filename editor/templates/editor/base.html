@@ -1,0 +1,22 @@
+{% load static %} 
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> 
+  <link rel="stylesheet" type="text/css" href="{% static 'editor/css/style.css' %}" />
+</head>
+
+
+<nav class="navbar">
+  <div class="justify-content-end" >
+    <span class="navbar-brand">Alpha Mini Message Editor</span>
+    <div class="navbar-nav">
+
+      {% block welcome_user %}{% endblock %}
+
+    <div>
+    </div>
+</nav>
+
+{% block form %}{% endblock %}
+
+

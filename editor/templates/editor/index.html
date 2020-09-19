@@ -1,0 +1,3 @@
+{% extends 'editor/base.html' %}
+
+{% block welcome_user %} {{ block.super }} <a class="navbar-text navbar-link" href="{% url 'login' %}">LOGIN</a>{% endblock %}
