@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, redirect
 from rest_framework.response import Response
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
@@ -23,3 +23,15 @@ class MessageEditor(APIView) :
         return Response({
             'serializer': serializer, 
             'message': message })
+
+    def post(self, request) : 
+        message = self.get_queryset()[0]
+        serializer = MessageSerializer(message, data=request.data, context={'request':request})
+        if not serializer.is_valid(): 
+            return Response({
+                'serializer': serializer, 
+                'message': message
+            }) 
+
+        serializer.save()
+        return redirect('message-editor')
