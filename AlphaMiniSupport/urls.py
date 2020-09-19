@@ -18,11 +18,13 @@ from django.urls import path, include
 from django.conf.urls import url
 from rest_framework import routers 
 from apiservice import views 
+from editor.views import MessageEditor
 
 router = routers.DefaultRouter() 
 router.register(r'messages', views.MessageViewSet)
 
 urlpatterns = [
+    path('', MessageEditor.as_view(), name='message-editor'),
     path('api/v1/', include(router.urls)), 
     path('admin/', admin.site.urls),
     url('^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
