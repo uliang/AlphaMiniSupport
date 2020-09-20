@@ -2,7 +2,7 @@
 
 {% block form %}
 <div class="container">
-  <form method="post" action="{% url 'login' %}">
+  <form class="form-horizontal" method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form }} 
     <input type="submit" class="btn btn-primary" value="LOGIN" />

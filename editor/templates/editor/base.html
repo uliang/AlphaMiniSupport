@@ -10,13 +10,12 @@
   <div class="justify-content-end" >
     <span class="navbar-brand">Alpha Mini Message Editor</span>
     <div class="navbar-nav">
-
       {% block welcome_user %}{% endblock %}
-
     <div>
     </div>
 </nav>
 
-{% block form %}{% endblock %}
-
-
+<div class="container" >
+  {% block form %}{% endblock %}
+  {% block flash_messages %}{% endblock %}
+</div>

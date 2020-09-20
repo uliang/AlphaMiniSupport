@@ -7,8 +7,8 @@
 {% endblock %}
 
 {% block form %}
-<div id="form-container" class="container">
-  <div class="d-flex flex-column justify-content-center">
+<div id="form-container m-auto">
+  <div class="d-flex flex-column">
     <form class="form-horizontal m-auto" action="{% url 'message-editor' %}" method="POST" >
       {% csrf_token %} 
       {% render_form serializer template_pack='rest_framework/horizontal' %}
