@@ -1,14 +1,12 @@
 {% extends 'editor/base.html' %}
 
-{% block form %}
-<div class="container">
-  <form class="form-inline" method="post" action="{% url 'login' %}">
+{% block welcome_user %}
+
+  <form class="navbar-form" method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form }} 
     <input type="submit" class="btn btn-primary" value="LOGIN" />
     <input type="hidden" name="next" value="{% url 'message-editor' %}" />
   </form>
-  </div>
-{% endblock %}
 
-{% block image %} {{ block.super }}{% endblock %}
+{% endblock %}
