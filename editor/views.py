@@ -17,10 +17,11 @@ class MessageEditor(APIView) :
 
     def handle_exception(self, exc):
         response = exception_handler(exc, context={})
-        if response.status_code == 401: 
+        if response.status_code in [401, 403]: 
             return Response(data={}, status=response.status_code, 
                             template_name='account/login-required.html')
-        return response
+        return Response(data={}, status=response.status_code, 
+                        template_name='account/error.html')
 
     def get_queryset(self) : 
         return self.queryset

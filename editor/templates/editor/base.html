@@ -6,16 +6,20 @@
 </head>
 
 
-<nav class="navbar">
-  <div class="justify-content-end" >
-    <span class="navbar-brand">Alpha Mini Message Editor</span>
-    <div class="navbar-nav">
-      {% block welcome_user %}{% endblock %}
-    <div>
-    </div>
+<nav class="navbar navbar-expand-lg">
+  <a href="{% url 'index' %}"><span class="navbar-brand">Alpha Mini Message Editor</span></a>
+  <a href="{% url 'message-editor' %}"><span class="navbar-item navbar-link navbar-text">Edit message</span></a>
+  <div class="navbar-right" style="margin-right:1rem;">
+    {% block welcome_user %}{% endblock %}
+  </div>
 </nav>
 
 <div class="container" >
   {% block form %}{% endblock %}
   {% block flash_messages %}{% endblock %}
+  {% block image %}
+  <div class="img-container">
+    <img id="alpha-mini" src="{% static 'editor/assets/maxresdefault.jpg' %}" alt="picture of Alpha Mini" />
+  </div>
+{% endblock %} 
 </div>

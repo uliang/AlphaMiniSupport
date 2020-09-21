@@ -2,7 +2,7 @@
 
 {% block form %}
 <div class="container">
-  <form class="form-horizontal" method="post" action="{% url 'login' %}">
+  <form class="form-inline" method="post" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form }} 
     <input type="submit" class="btn btn-primary" value="LOGIN" />
@@ -11,3 +11,4 @@
   </div>
 {% endblock %}
 
+{% block image %} {{ block.super }}{% endblock %}

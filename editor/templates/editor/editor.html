@@ -2,13 +2,19 @@
 {% load rest_framework %} 
 
 {% block welcome_user %} 
-  <span class="navbar-text">Hello {{ request.user.username }}</span>
+  <span class="nav-item navbar-text">Hello {{ request.user.username }}</span>
   <a class="nav-item nav-link navbar-text" href="{% url 'logout' %}" >LOGOUT</a> 
 {% endblock %}
 
 {% block form %}
 <div id="form-container m-auto">
   <div class="d-flex flex-column">
+    <div id="update-status" >
+      <div>
+        <span ><strong>Created on</strong>: {{ message.created_on|date:'r'|cut:"+0800" }}</span>
+      </div>
+      <span><strong>Updated on</strong>: {{ message.updated_on|date:'r'|cut:"+0800" }}</span>
+    </div>
     <form class="form-horizontal m-auto" action="{% url 'message-editor' %}" method="POST" >
       {% csrf_token %} 
       {% render_form serializer template_pack='rest_framework/horizontal' %}
