@@ -47,4 +47,5 @@ form.navbar-form > label, input {
 
 input {
     background-color: lightgrey;
+    color: black; 
 }
