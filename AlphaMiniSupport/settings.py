@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '0!jh3xlfigwf&#_^-s&%9nu7sbmb5lw5f&ay_r2sdrhj8s1j11'
+SECRET_KEY = os.environ.get('SECRET_KEY', None)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -86,7 +87,7 @@ REST_FRAMEWORK = {
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-import os
+
 
 DATABASES = {
     'default': {
@@ -136,6 +137,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = os.environ.get('STATIC_URL', None)
+STATIC_URL = os.environ.get('STATIC_URL', '/static')
 
 STATIC_ROOT = './static/'

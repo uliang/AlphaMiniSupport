@@ -8,7 +8,7 @@ A complete deployment solution will include provisioning of:
 2. Azure storage account to serve static files 
 3. Postgres database. 
 
-You will need to supply environment variables STATIC_URL, DB_NAME, DB_HOST, DB_PORT, DB_PASSWORD and DB_USER. 
+You will need to supply environment variables SECRET_KEY, STATIC_URL, DB_NAME, DB_HOST, DB_PORT, DB_PASSWORD and DB_USER. 
 
 Once Azure has the web application container running, the following steps need to be executed 
 
