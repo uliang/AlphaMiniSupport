@@ -1,0 +1,7 @@
+{% extends 'editor/base.html' %} 
+
+{% block welcome_user %}<a class="navbar-link navbar-text" href="{% url 'index' %}">HOME </a> {% endblock %}
+
+{% block flash_messages %} 
+    <span>An error has occured. </span> 
+{% endblock %} 

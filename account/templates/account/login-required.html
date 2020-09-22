@@ -1,0 +1,7 @@
+{% extends 'editor/base.html' %} 
+
+{% block welcome_user %} <a class="navbar-link navbar-text" href="{% url 'login' %}"> LOGIN </a> {% endblock %}
+
+{% block flash_messages %}
+  <span>Forbidden action. Please login. </span>
+{% endblock %}

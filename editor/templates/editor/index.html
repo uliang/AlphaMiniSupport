@@ -1,0 +1,11 @@
+{% extends 'editor/base.html' %}
+{% load static %}
+
+{% block welcome_user %} 
+    {{ block.super }} 
+    {% if request.user.is_authenticated %}
+        <span class="navbar-text">Hello {{ request.user.username }}</span>
+    {% else %}
+        <a class="navbar-text navbar-link" href="{% url 'login' %}">LOGIN</a>
+    {% endif %}
+{% endblock %}
