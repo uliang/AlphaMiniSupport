@@ -1,3 +1,4 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
 from django.core.exceptions import PermissionDenied
 
@@ -27,6 +28,12 @@ class MessageEditor(APIView) :
         return self.queryset
 
     def get(self, request): 
+        if not Message.objects.exists(): 
+            new_message = Message(
+                message="Good morning, how are you!",
+                message_start= datetime().now().time(), 
+                frequency="00:00:00")
+            new_message.save()
         message = self.get_queryset()[0]
         serializer = MessageSerializer(message, context={'request': request}) 
         return Response({
