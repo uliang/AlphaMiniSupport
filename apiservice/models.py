@@ -12,10 +12,8 @@ class Message(models.Model) :
     message_end_date = models.DateField(verbose_name="Day to end playing message", default=date.today)
     message_start = models.TimeField(verbose_name="Repeat message start time") 
     message_end = models.TimeField(verbose_name="Repeat message stop time", null=True, blank=True)
-    message_duration = models.DurationField(verbose_name="Repeat message duration (hh:mm:ss)", null=True, blank=True)
     frequency = models.DurationField(verbose_name="Repeat message every (hh:mm:ss)")
-    active = models.BooleanField(verbose_name="Active message", default=True)
 
     def __str__(self) : 
         display_message = ' '.join(self.message.split()[:10]) + '...'
-        return f"<{display_message}, in_use={self.active}>"
+        return f"<{display_message}>"
