@@ -1,0 +1,51 @@
+body {
+    background-color: lightgray; 
+}
+
+nav {
+    background-color: black; 
+    color: white;
+}
+
+div#form-container {
+    /* background-color: orange;  */
+    width: 75%; 
+    height: 100%; 
+}
+
+input[type="submit"] {
+    width: 10rem; 
+}
+
+div#update-status {
+    margin-bottom: 2rem; 
+    display: flex;
+    flex-direction: row;
+}
+
+div#update-status>div {
+    margin-right: 3rem;
+}
+
+div.img-container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+img#alpha-mini {
+    height: 75%;
+    width: 75%;
+    margin: auto ; 
+}
+
+form.navbar-form > label, input {
+    margin-left: 1rem;
+}
+
+input {
+    background-color: lightgrey;
+    color: black; 
+}
