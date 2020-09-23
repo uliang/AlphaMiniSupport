@@ -5,6 +5,7 @@
     {{ block.super }} 
     {% if request.user.is_authenticated %}
         <span class="navbar-text">Hello {{ request.user.username }}</span>
+        <a class="navbar-text navbar-link" href="{% url 'logout' %}">LOGOUT</a>
     {% else %}
         <a class="navbar-text navbar-link" href="{% url 'login' %}">LOGIN</a>
     {% endif %}
