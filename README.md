@@ -9,7 +9,7 @@ Please prepare
 1. A python virtual environment and activate it. Python version is at least 3.8. 
 2. Clone this repository and `cd` into the cloned directory. 
 3. Run `pip install -r requirements.txt`
-4. You will need to generate a secret key use it to set the SECRET_KEY environment variable. 
+4. You will need to generate a secret key and use it to set the SECRET_KEY environment variable. 
 
 The application uses sqlite3 which is a simple disk based database solution. It comes with python so no additional installation is required. 
 
