@@ -1,4 +1,5 @@
-from datetime import datetime
+from datetime import timedelta
+from django.utils import timezone 
 from django.shortcuts import render, redirect
 from django.core.exceptions import PermissionDenied
 
@@ -31,8 +32,8 @@ class MessageEditor(APIView) :
         if not Message.objects.exists(): 
             new_message = Message(
                 message="Good morning, how are you!",
-                message_start= datetime().now().time(), 
-                frequency="00:00:00")
+                message_start= timezone.now().time(), 
+                frequency=timedelta(minutes=30))
             new_message.save()
         message = self.get_queryset()[0]
         serializer = MessageSerializer(message, context={'request': request}) 
