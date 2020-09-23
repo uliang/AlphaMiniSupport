@@ -13,9 +13,12 @@ Please prepare
 
 The application uses sqlite3 which is a simple disk based database solution. It comes with python so no additional installation is required. 
 
-Execute the following steps.
+Execute the following steps. Let `<ip-add>` denote the IP address of the host machine.
 
 ```bash
+# Export host ip address 
+export ALLOWED_HOSTS=<ip-add>
+
 # Build database tables
 python manage.py migrate
 
@@ -27,7 +30,7 @@ gunicorn -b 0.0.0.0 AlphaMiniSupport.wsgi
 
 Ensure that both the Alphamini robot and host machine are located on the same WiFi network. 
 
-Let `<ip-add>` denote the IP address of the host machine.
+
 
 Now navigate to `<ip-add>:8000/admin` and login with root credentials created with the `createsuperuser` command earlier. Complete the deployment by creating users, permission groups and generating API tokens for applications 
 which consume the message api. 
