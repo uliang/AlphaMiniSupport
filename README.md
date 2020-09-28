@@ -65,7 +65,7 @@ convience use this command
 6. Activate the Apache server. 
 
 ## Creating users, permissions and user tokens
-Now navigate to `http://<mydomain.com>/admin` and login with root credentials created with the `createsuperuser` command earlier. Complete the deployment by creating users, permission groups and generating API tokens for applications 
+Now navigate to `http://mydomain.com/admin` and login with root credentials created with the `createsuperuser` command earlier. Complete the deployment by creating users, permission groups and generating API tokens for applications 
 which consume the message api. 
 
 It is suggested to create an application only user with view permissions only. Associate an access token to this user. The robot will need this
