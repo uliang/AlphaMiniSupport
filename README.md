@@ -60,6 +60,8 @@ convience use this command
 
     b. Configure Apache server `http.conf` file. Go [here](https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/modwsgi/)
 
+    c. Configure Apache server to serve application static files. Instructions [here](https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/modwsgi/#serving-files). The path to static files for this application are `./static`. 
+
 6. Activate the Apache server. 
 
 ## Creating users, permissions and user tokens
